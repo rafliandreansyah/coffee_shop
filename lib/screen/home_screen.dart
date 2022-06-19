@@ -1,6 +1,8 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 
+import '../screen/cart_screen.dart';
+import '../screen/detail_screen.dart';
 import '../widget/card_recommended.dart';
 
 import '../colors/colors.dart';
@@ -26,7 +28,10 @@ class HomeScreen extends StatelessWidget {
             )),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (ctx) => const CartScreen()));
+            },
             icon: Badge(
               badgeContent: const Text(
                 '0',
@@ -51,7 +56,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Good Afternoon, Dicoding',
+                'Good Afternoon, Rafli',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 18.0,
@@ -122,25 +127,31 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 8.0,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 170,
-                    child: Card(
-                      margin: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+              Container(
+                width: double.infinity,
+                height: 170,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (ctx) =>
+                            DetailScreen(product: DATA_DUMMY_OBJECT),
                       ),
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      child: Image.asset(
-                        'images/new_arrival.jpg',
-                        fit: BoxFit.cover,
-                      ),
+                    );
+                  },
+                  child: Card(
+                    margin: EdgeInsets.zero,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: Image.asset(
+                      'images/new_arrival.jpg',
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ],
+                ),
               ),
               const SizedBox(height: 24.0),
               Row(

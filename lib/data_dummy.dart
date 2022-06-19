@@ -44,3 +44,12 @@ var DATA_DUMMY = [
     price: 18000.0,
   ),
 ];
+
+var DATA_DUMMY_OBJECT = Product(
+  id: 'm6',
+  productName: 'Premium Chocolate',
+  productDescription:
+      'The milk chocolate to enrobe gelato with a snappy robe of creamy chocolate intensity With this Ice Chocolate, gelato makers now have their unique 823 chocolate recipe finetuned for dipping and stracciatella. Expect the widley loved balanced taste that blends rich roasted cocoa notes, with milky and caramelly flavors.',
+  productImg: 'images/new_arrival.jpg',
+  price: 18000.0,
+);

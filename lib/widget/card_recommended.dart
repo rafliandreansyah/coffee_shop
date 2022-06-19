@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screen/detail_screen.dart';
+
 import '../model/product.dart';
 import '../colors/colors.dart';
 
@@ -14,34 +16,41 @@ class CardRecommended extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         width: 120,
-        child: Card(
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          margin: EdgeInsets.zero,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(
-                product.productImg,
-                width: double.infinity,
-                height: 80,
-                fit: BoxFit.cover,
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Text(
-                product.productName,
-                style: const TextStyle(
-                  fontSize: 13.0,
-                  color: colorGrey,
-                  fontWeight: FontWeight.w500,
+        child: InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+              return DetailScreen(product: product);
+            }));
+          },
+          child: Card(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            margin: EdgeInsets.zero,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  product.productImg,
+                  width: double.infinity,
+                  height: 80,
+                  fit: BoxFit.cover,
                 ),
-                maxLines: 2,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-              )
-            ],
+                const SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  product.productName,
+                  style: const TextStyle(
+                    fontSize: 13.0,
+                    color: colorGrey,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                )
+              ],
+            ),
           ),
         ),
       ),
