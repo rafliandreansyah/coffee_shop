@@ -1,6 +1,4 @@
-# submission1
-
-Coffee Shop App
+# Coffee Shop App
 
 ## Getting Started
 
