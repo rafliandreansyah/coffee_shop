@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 
 import '../screen/cart_screen.dart';
@@ -17,10 +17,12 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {},
-            icon: Badge(
-              badgeColor: colorPrimary,
-              position: const BadgePosition(end: 1, bottom: 2),
-              badgeContent: Text(''),
+            icon: badges.Badge(
+              badgeStyle: const badges.BadgeStyle(
+                badgeColor: colorPrimary,
+              ),
+              position: badges.BadgePosition.bottomEnd(end: 1, bottom: 2),
+              badgeContent: const Text(''),
               child: const Icon(
                 Icons.notifications,
                 color: colorGrey,
@@ -32,16 +34,18 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(builder: (ctx) => const CartScreen()));
             },
-            icon: Badge(
-              badgeContent: const Text(
+            icon: const badges.Badge(
+              badgeContent: Text(
                 '0',
                 style: TextStyle(
                   color: colorWhite,
                   fontSize: 10,
                 ),
               ),
-              badgeColor: colorPrimary,
-              child: const Icon(Icons.add_shopping_cart, color: colorGrey),
+              badgeStyle: badges.BadgeStyle(
+                badgeColor: colorPrimary,
+              ),
+              child: Icon(Icons.add_shopping_cart, color: colorGrey),
             ),
           )
         ],

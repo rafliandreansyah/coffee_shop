@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../colors/colors.dart';
-import '../model/product.dart' as P;
+import '../model/product.dart' as p;
 
 class DetailScreen extends StatefulWidget {
-  final P.Product product;
+  final p.Product product;
 
   const DetailScreen({Key? key, required this.product}) : super(key: key);
 
@@ -15,7 +15,7 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   var _isSaved = false;
   var _isOrder = false;
-  var size = P.Size.REGULAR;
+  var size = p.Size.REGULAR;
   var sugar = 0;
 
   @override
@@ -54,7 +54,7 @@ class _DetailScreenState extends State<DetailScreen> {
               child: ChoiceChip(
                 onSelected: (isSelect) {
                   setState(() {
-                    size = isSelect ? P.Size.REGULAR : size;
+                    size = isSelect ? p.Size.REGULAR : size;
                   });
                 },
                 padding: const EdgeInsets.symmetric(
@@ -64,7 +64,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 avatar: Icon(
                   Icons.coffee_rounded,
                   size: 18,
-                  color: size == P.Size.REGULAR ? colorPrimary : null,
+                  color: size == p.Size.REGULAR ? colorPrimary : null,
                 ),
                 label: const FittedBox(
                   fit: BoxFit.cover,
@@ -75,7 +75,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                 ),
-                selected: size == P.Size.REGULAR ? true : false,
+                selected: size == p.Size.REGULAR ? true : false,
               ),
             ),
             const SizedBox(width: 8.0),
@@ -83,7 +83,7 @@ class _DetailScreenState extends State<DetailScreen> {
               child: ChoiceChip(
                 onSelected: (isSelect) {
                   setState(() {
-                    size = isSelect ? P.Size.MEDIUM : size;
+                    size = isSelect ? p.Size.MEDIUM : size;
                   });
                 },
                 padding: const EdgeInsets.symmetric(
@@ -93,7 +93,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 avatar: Icon(
                   Icons.coffee_rounded,
                   size: 18,
-                  color: size == P.Size.MEDIUM ? colorPrimary : null,
+                  color: size == p.Size.MEDIUM ? colorPrimary : null,
                 ),
                 label: const FittedBox(
                   fit: BoxFit.cover,
@@ -104,7 +104,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                 ),
-                selected: size == P.Size.MEDIUM ? true : false,
+                selected: size == p.Size.MEDIUM ? true : false,
               ),
             ),
             const SizedBox(width: 8.0),
@@ -112,7 +112,7 @@ class _DetailScreenState extends State<DetailScreen> {
               child: ChoiceChip(
                 onSelected: (isSelect) {
                   setState(() {
-                    size = isSelect ? P.Size.LARGE : size;
+                    size = isSelect ? p.Size.LARGE : size;
                   });
                 },
                 padding: const EdgeInsets.symmetric(
@@ -122,7 +122,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 avatar: Icon(
                   Icons.coffee_rounded,
                   size: 18,
-                  color: size == P.Size.LARGE ? colorPrimary : null,
+                  color: size == p.Size.LARGE ? colorPrimary : null,
                 ),
                 label: const FittedBox(
                   fit: BoxFit.cover,
@@ -133,7 +133,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                 ),
-                selected: size == P.Size.LARGE ? true : false,
+                selected: size == p.Size.LARGE ? true : false,
               ),
             ),
           ],
@@ -253,7 +253,9 @@ class _DetailScreenState extends State<DetailScreen> {
             Expanded(
               child: ChoiceChip(
                 onSelected: (isSelection) {
-                  sugar = isSelection ? 2 : sugar;
+                  setState(() {
+                    sugar = isSelection ? 2 : sugar;
+                  });
                 },
                 padding: const EdgeInsets.symmetric(
                   vertical: 2.0,
